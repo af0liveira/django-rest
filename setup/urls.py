@@ -18,7 +18,8 @@ from django.urls import path, include
 
 from rest_framework import routers
 
-from escola.views import AlunosViewSet, CursosViewSet, MatriculasViewSet
+from escola.views import (AlunosViewSet, CursosViewSet, MatriculasViewSet,
+                          ListaMatriculasAluno)
 
 # Create a router and register routes
 router = routers.DefaultRouter()
@@ -29,4 +30,5 @@ router.register('matriculas', MatriculasViewSet, basename='Cursos')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
+    path('aluno/<int:pk>/matriculas/', ListaMatriculasAluno.as_view()),
 ]
