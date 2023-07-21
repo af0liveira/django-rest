@@ -3,8 +3,8 @@ from rest_framework import viewsets, generics
 from escola.models import Aluno, Curso, Matricula
 from escola.serializers import (AlunoSerializer, CursoSerializer,
                                 MatriculaSerializer,
-                                ListaMatriculasAlunoSerializer)
-
+                                ListaMatriculasAlunoSerializer,
+                                ListaMatriculasCursoSerializer)
 
 class AlunosViewSet(viewsets.ModelViewSet):
     queryset = Aluno.objects.all()
@@ -33,3 +33,12 @@ class ListaMatriculasAluno(generics.ListAPIView):
         return queryset
     
     serializer_class = ListaMatriculasAlunoSerializer
+
+
+class ListaMatriculasCurso(generics.ListAPIView):
+    
+    def get_queryset(self):
+        queryset = Matricula.objects.filter(curso_id=self.kwargs['pk'])
+        return queryset
+    
+    serializer_class = ListaMatriculasCursoSerializer
