@@ -83,7 +83,7 @@ Student data can be created, requested, updated, and deleted via `127.0.0.1:8000
 
 Similarly, courses can be managed via `127.0.0.1:8000/cursos/`.
 
-Finally, enrollments can be managed vai `127.0.0.1:8000/matriculas/`.
+Finally, enrollments can be managed via `127.0.0.1:8000/matriculas/`.
 
 ### Viewing the students enrolled in a given course
 
